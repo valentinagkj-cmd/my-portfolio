@@ -3,123 +3,398 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Valentina's personal portfolio">
+    <title>Valentina | Computer Science Student</title>
 
-    <title>Valentina | Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
 
-    <link rel="stylesheet" href="style.css">
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #fffaf8;
+            color: #302a2b;
+            line-height: 1.6;
+        }
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 22px 8%;
+            background: rgba(255, 250, 248, 0.94);
+            border-bottom: 1px solid #eee1df;
+            backdrop-filter: blur(10px);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #302a2b;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #554b4d;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #9b6873;
+        }
+
+        section {
+            padding: 90px 8%;
+        }
+
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-text {
+            max-width: 700px;
+        }
+
+        .eyebrow {
+            color: #9b6873;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 7vw, 82px);
+            line-height: 1.05;
+            margin-bottom: 25px;
+        }
+
+        h1 span {
+            color: #9b6873;
+        }
+
+        .hero p {
+            max-width: 600px;
+            font-size: 18px;
+            color: #706668;
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 13px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #302a2b;
+            color: white;
+        }
+
+        .primary:hover {
+            transform: translateY(-3px);
+            background: #9b6873;
+        }
+
+        .secondary {
+            border: 1px solid #d9c6c5;
+            color: #554b4d;
+            background: white;
+        }
+
+        .secondary:hover {
+            transform: translateY(-3px);
+            border-color: #9b6873;
+        }
+
+        .decoration {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            background: #f3dfe1;
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .decoration::after {
+            content: "";
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            background: #a87580;
+            right: 5px;
+            bottom: 5px;
+        }
+
+        .section-title {
+            margin-bottom: 40px;
+        }
+
+        .section-title small {
+            color: #9b6873;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-top: 8px;
+        }
+
+        .about-card {
+            max-width: 850px;
+            background: white;
+            padding: 35px;
+            border: 1px solid #eee1df;
+            border-radius: 20px;
+            box-shadow: 0 10px 35px rgba(80, 50, 50, 0.05);
+        }
+
+        .about-card p {
+            color: #706668;
+            font-size: 17px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            gap: 15px;
+        }
+
+        .skill {
+            background: white;
+            border: 1px solid #eee1df;
+            padding: 22px;
+            text-align: center;
+            border-radius: 16px;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            transform: translateY(-5px);
+            border-color: #c99da5;
+        }
+
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 28px;
+            border-radius: 20px;
+            border: 1px solid #eee1df;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(80, 50, 50, 0.08);
+        }
+
+        .project-card h3 {
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #706668;
+            font-size: 15px;
+            margin-bottom: 18px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 20px;
+            background: #f6e8e8;
+            color: #8c5c66;
+            font-size: 12px;
+        }
+
+        .education-card {
+            background: white;
+            border-left: 4px solid #a87580;
+            padding: 28px;
+            border-radius: 15px;
+            max-width: 750px;
+            box-shadow: 0 8px 25px rgba(80, 50, 50, 0.05);
+        }
+
+        .education-card h3 {
+            margin-bottom: 7px;
+        }
+
+        .education-card p {
+            color: #706668;
+        }
+
+        .contact-box {
+            text-align: center;
+            max-width: 700px;
+            margin: auto;
+            background: #f5e5e5;
+            padding: 55px 30px;
+            border-radius: 25px;
+        }
+
+        .contact-box h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #706668;
+            margin-bottom: 25px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #817476;
+            font-size: 13px;
+            border-top: 1px solid #eee1df;
+        }
+
+        @media (max-width: 700px) {
+            nav {
+                padding: 18px 6%;
+            }
+
+            nav ul {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            section {
+                padding: 65px 6%;
+            }
+
+            .hero {
+                text-align: center;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .decoration {
+                width: 190px;
+                height: 190px;
+            }
+
+            .decoration::after {
+                width: 55px;
+                height: 55px;
+            }
+
+            .section-title h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <header class="navbar">
-        <a href="#" class="logo">Valentina.</a>
+    <nav>
+        <div class="logo">Valentina.</div>
 
-        <nav>
-            <a href="#about">About</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </nav>
-    </header>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-
-    <!-- Hero Section -->
     <main>
 
+        <!-- HERO -->
         <section class="hero">
-
             <div class="hero-text">
+                <div class="eyebrow">B.SC. COMPUTER SCIENCE STUDENT</div>
 
-                <p class="eyebrow">
-                    B.SC. COMPUTER SCIENCE STUDENT
-                </p>
+                <h1>Hi, I'm <span>Valentina.</span></h1>
 
-                <h1>
-                    Hi, I'm <span>Valentina.</span>
-                </h1>
-
-                <p class="hero-description">
+                <p>
                     I'm learning, building and growing one project at a time.
-                    I enjoy exploring technology and turning ideas into
-                    simple, useful projects.
+                    I enjoy exploring technology and turning ideas into simple,
+                    useful projects.
                 </p>
 
-                <div class="hero-buttons">
-                    <a href="#projects" class="button primary">
-                        View My Work
-                    </a>
-
-                    <a href="#contact" class="button secondary">
-                        Let's Connect
-                    </a>
+                <div class="buttons">
+                    <a href="#projects" class="btn primary">View My Work</a>
+                    <a href="#contact" class="btn secondary">Let's Connect</a>
                 </div>
-
             </div>
 
-            <div class="hero-decoration">
-                <div class="circle"></div>
-                <div class="small-circle"></div>
-            </div>
-
+            <div class="decoration"></div>
         </section>
 
 
-        <!-- About Section -->
-        <section id="about" class="section">
-
-            <p class="section-label">01 — ABOUT</p>
-
-            <h2>A little about me.</h2>
-
-            <p class="section-intro">
-                I'm a second-year B.Sc. Computer Science student interested
-                in technology, web development, data and documentation.
-                I'm focused on building practical skills and becoming
-                better through every project I work on.
-            </p>
-
-            <div class="about-cards">
-
-                <div class="info-card">
-                    <span>01</span>
-                    <h3>Student</h3>
-                    <p>
-                        Currently pursuing B.Sc. Computer Science.
-                    </p>
-                </div>
-
-                <div class="info-card">
-                    <span>02</span>
-                    <h3>Curious Learner</h3>
-                    <p>
-                        Always exploring new tools and technologies.
-                    </p>
-                </div>
-
-                <div class="info-card">
-                    <span>03</span>
-                    <h3>Future Professional</h3>
-                    <p>
-                        Building skills through practical projects.
-                    </p>
-                </div>
-
+        <!-- ABOUT -->
+        <section id="about">
+            <div class="section-title">
+                <small>ABOUT ME</small>
+                <h2>A little about me</h2>
             </div>
 
+            <div class="about-card">
+                <p>
+                    I am a Computer Science student interested in technology,
+                    web development, data, documentation and learning practical
+                    skills. I enjoy building simple projects and continuously
+                    improving my technical and communication skills.
+                </p>
+            </div>
         </section>
 
 
-        <!-- Skills Section -->
-        <section id="skills" class="section">
+        <!-- SKILLS -->
+        <section id="skills">
+            <div class="section-title">
+                <small>MY SKILLS</small>
+                <h2>Things I'm learning</h2>
+            </div>
 
-            <p class="section-label">02 — SKILLS</p>
-
-            <h2>What I work with.</h2>
-
-            <div class="skills">
-
+            <div class="skills-grid">
                 <div class="skill">Python</div>
                 <div class="skill">Java</div>
                 <div class="skill">HTML</div>
@@ -127,155 +402,94 @@
                 <div class="skill">Git</div>
                 <div class="skill">GitHub</div>
                 <div class="skill">Basic Excel</div>
-
             </div>
-
         </section>
 
 
-        <!-- Projects Section -->
-        <section id="projects" class="section">
-
-            <p class="section-label">03 — PROJECTS</p>
-
-            <h2>Selected projects.</h2>
+        <!-- PROJECTS -->
+        <section id="projects">
+            <div class="section-title">
+                <small>MY WORK</small>
+                <h2>Projects</h2>
+            </div>
 
             <div class="projects">
 
-                <article class="project-card">
-
-                    <div class="project-number">01</div>
-
+                <div class="project-card">
                     <h3>Personal Portfolio</h3>
-
                     <p>
-                        A responsive personal portfolio website designed
-                        and developed using HTML and CSS.
+                        A clean and responsive personal portfolio website
+                        created to showcase my skills, education and projects.
                     </p>
 
-                    <div class="tags">
-                        <span>HTML</span>
-                        <span>CSS</span>
-                    </div>
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">GitHub</span>
+                </div>
 
-                </article>
-
-
-                <article class="project-card">
-
-                    <div class="project-number">02</div>
-
-                    <h3>Java Project</h3>
-
+                <div class="project-card">
+                    <h3>Python Projects</h3>
                     <p>
-                        A Java project demonstrating my understanding
-                        of object-oriented programming and core Java concepts.
+                        Small Python programs created while learning
+                        programming concepts and problem solving.
                     </p>
 
-                    <div class="tags">
-                        <span>Java</span>
-                        <span>OOP</span>
-                    </div>
+                    <span class="tag">Python</span>
+                    <span class="tag">Programming</span>
+                </div>
 
-                </article>
-
-
-                <article class="project-card">
-
-                    <div class="project-number">03</div>
-
-                    <h3>Python Project</h3>
-
+                <div class="project-card">
+                    <h3>More Coming Soon</h3>
                     <p>
-                        A beginner-friendly Python project focused on
-                        applying programming concepts to a practical problem.
+                        I'm currently learning and building new projects.
+                        This section will grow as I continue my journey.
                     </p>
 
-                    <div class="tags">
-                        <span>Python</span>
-                    </div>
-
-                </article>
+                    <span class="tag">Learning</span>
+                    <span class="tag">Future</span>
+                </div>
 
             </div>
-
         </section>
 
 
-        <!-- Education Section -->
-        <section id="education" class="section">
-
-            <p class="section-label">04 — EDUCATION</p>
+        <!-- EDUCATION -->
+        <section id="education">
+            <div class="section-title">
+                <small>EDUCATION</small>
+                <h2>My academic journey</h2>
+            </div>
 
             <div class="education-card">
+                <h3>B.Sc. Computer Science</h3>
+                <p>Anna Adarsh College for Women</p>
+                <p>2nd Year · Chennai, India</p>
+            </div>
+        </section>
 
-                <p class="education-year">CURRENT</p>
 
-                <h2>B.Sc. Computer Science</h2>
+        <!-- CONTACT -->
+        <section id="contact">
+            <div class="contact-box">
+                <h2>Let's connect.</h2>
 
-                <h3>Anna Adarsh College for Women</h3>
-
-                <p>2nd Year</p>
-
-                <div class="line"></div>
-
-                <p class="education-description">
-                    Currently building my technical foundation through
-                    programming, web development and practical projects.
+                <p>
+                    I'm always open to learning, collaborating and connecting
+                    with people interested in technology.
                 </p>
 
+                <a href="mailto:your-email@example.com"
+                   class="btn primary">
+                    Email Me
+                </a>
             </div>
-
-        </section>
-
-
-        <!-- Currently Learning -->
-        <section class="learning">
-
-            <p class="section-label">CURRENTLY LEARNING</p>
-
-            <div class="learning-list">
-                <span>Java</span>
-                <span>Web Development</span>
-                <span>Git & GitHub</span>
-                <span>Data & Documentation</span>
-            </div>
-
-        </section>
-
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact">
-
-            <p class="section-label">05 — CONTACT</p>
-
-            <h2>Let's connect.</h2>
-
-            <p>
-                I'm always open to learning, building and connecting
-                with people who share an interest in technology.
-            </p>
-
-            <div class="contact-links">
-
-                <span>Email</span>
-                <span>GitHub</span>
-                <span>LinkedIn</span>
-
-            </div>
-
         </section>
 
     </main>
 
 
-    <!-- Footer -->
     <footer>
-
-        <p>Designed & built by Valentina · 2026</p>
-
-        <a href="#">Back to top ↑</a>
-
+        © 2026 Valentina. Built with HTML & CSS.
     </footer>
 
 </body>
