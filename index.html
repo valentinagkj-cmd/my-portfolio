@@ -1,346 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Valentina | Computer Science Student</title>
 
-    <title>Valentina | Computer Science Student</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-    <style>
-        :root {
-            --ivory: #faf8f5;
-            --white: #ffffff;
-            --rose: #b98282;
-            --rose-light: #ead8d6;
-            --brown: #3d3331;
-            --muted: #756967;
-            --border: #e8dfdc;
-            --shadow: 0 12px 35px rgba(61, 51, 49, 0.08);
-        }
+    body {
+      font-family: Arial, sans-serif;
+      background: #faf8f5;
+      color: #3d3331;
+      line-height: 1.6;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
+    nav {
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e8dfdc;
+      background: #faf8f5;
+    }
 
-        body {
-            font-family: Arial, sans-serif;
-            background: var(--ivory);
-            color: var(--brown);
-            line-height: 1.7;
-        }
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+    }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+    nav ul {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
 
-        .container {
-            width: min(1100px, 90%);
-            margin: auto;
-        }
+    nav a {
+      color: #3d3331;
+      text-decoration: none;
+    }
 
-        /* NAVIGATION */
+    nav a:hover {
+      color: #b98282;
+    }
 
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(250, 248, 245, 0.94);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-        }
+    section {
+      padding: 80px 8%;
+    }
 
-        .nav-container {
-            min-height: 72px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
 
-        .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
-            letter-spacing: -1px;
-        }
+    .hero-text {
+      max-width: 650px;
+    }
 
-        .nav-links {
-            display: flex;
-            gap: 28px;
-            list-style: none;
-            font-size: 0.92rem;
-        }
+    .small-title {
+      color: #b98282;
+      letter-spacing: 3px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
 
-        .nav-links a {
-            transition: 0.3s;
-        }
+    h1 {
+      font-size: 70px;
+      line-height: 1;
+      margin-bottom: 25px;
+    }
 
-        .nav-links a:hover {
-            color: var(--rose);
-        }
+    .hero p {
+      color: #756967;
+      font-size: 18px;
+      margin-bottom: 30px;
+    }
 
-        /* HERO */
+    .buttons {
+      display: flex;
+      gap: 15px;
+    }
 
-        .hero {
-            min-height: 88vh;
-            display: flex;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
+    .button {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 30px;
+      background: #b98282;
+      color: white;
+      text-decoration: none;
+    }
 
-        .hero-content {
-            max-width: 720px;
-        }
+    .button.secondary {
+      background: transparent;
+      color: #3d3331;
+      border: 1px solid #d8c9c5;
+    }
 
-        .eyebrow {
-            color: var(--rose);
-            font-size: 0.82rem;
-            letter-spacing: 2px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
+    .circle {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: #ead8d6;
+    }
 
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 6rem);
-            line-height: 1;
-            letter-spacing: -4px;
-            margin-bottom: 25px;
-        }
+    .section-title {
+      font-size: 35px;
+      margin-bottom: 25px;
+    }
 
-        .hero p {
-            max-width: 580px;
-            color: var(--muted);
-            font-size: 1.08rem;
-            margin-bottom: 30px;
-        }
+    .about-text {
+      max-width: 750px;
+      color: #756967;
+      font-size: 17px;
+    }
 
-        .buttons {
-            display: flex;
-            gap: 14px;
-            flex-wrap: wrap;
-        }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
 
-        .btn {
-            display: inline-block;
-            padding: 13px 22px;
-            border-radius: 30px;
-            border: 1px solid var(--rose);
-            transition: 0.3s;
-            font-size: 0.92rem;
-        }
+    .card {
+      background: white;
+      border: 1px solid #e8dfdc;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 8px 25px rgba(61, 51, 49, 0.05);
+    }
 
-        .btn-primary {
-            background: var(--rose);
-            color: white;
-        }
+    .card h3 {
+      margin-bottom: 10px;
+    }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
+    .card p {
+      color: #756967;
+    }
 
-        .hero-circle {
-            position: absolute;
-            width: 320px;
-            height: 320px;
-            border-radius: 50%;
-            background: var(--rose-light);
-            right: 4%;
-            top: 25%;
-            opacity: 0.65;
-            z-index: -1;
-        }
+    .number {
+      color: #b98282;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
 
-        /* SECTIONS */
+    .education {
+      background: #f2e8e5;
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 700px;
+    }
 
-        section {
-            padding: 100px 0;
-        }
+    .contact {
+      text-align: center;
+    }
 
-        .section-label {
-            color: var(--rose);
-            font-size: 0.78rem;
-            letter-spacing: 2px;
-            font-weight: bold;
-            margin-bottom: 8px;
-        }
+    footer {
+      text-align: center;
+      padding: 30px;
+      border-top: 1px solid #e8dfdc;
+      color: #756967;
+    }
 
-        .section-title {
-            font-size: 2.4rem;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
+    @media (max-width: 700px) {
+      nav ul {
+        display: none;
+      }
 
-        .section-intro {
-            max-width: 650px;
-            color: var(--muted);
-            margin-bottom: 45px;
-        }
+      section {
+        padding: 60px 6%;
+      }
 
-        /* ABOUT */
+      .hero {
+        flex-direction: column;
+        align-items: flex-start;
+      }
 
-        .about-box {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 24px;
-            padding: 40px;
-            box-shadow: var(--shadow);
-        }
+      h1 {
+        font-size: 48px;
+      }
 
-        .about-box p {
-            color: var(--muted);
-            max-width: 800px;
-        }
+      .circle {
+        width: 180px;
+        height: 180px;
+      }
+    }
+  </style>
+</head>
 
-        /* SKILLS */
+<body>
 
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 16px;
-        }
+  <nav>
+    <div class="logo">Valentina.</div>
 
-        .skill {
-            background: var(--white);
-            border: 1px solid var(--border);
-            padding: 22px;
-            border-radius: 18px;
-            transition: 0.3s;
-        }
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-        .skill:hover {
-            transform: translateY(-5px);
-            border-color: var(--rose-light);
-            box-shadow: var(--shadow);
-        }
+  <section class="hero">
+    <div class="hero-text">
+      <div class="small-title">B.SC. COMPUTER SCIENCE STUDENT</div>
 
-        .skill h3 {
-            font-size: 1rem;
-            margin-bottom: 5px;
-        }
+      <h1>Hi, I'm Valentina.</h1>
 
-        .skill p {
-            color: var(--muted);
-            font-size: 0.85rem;
-        }
+      <p>I'm learning, building and growing one project at a time.</p>
 
-        /* PROJECTS */
+      <div class="buttons">
+        <a href="#projects" class="button">View My Work</a>
+        <a href="#contact" class="button secondary">Let's Connect</a>
+      </div>
+    </div>
 
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
+    <div class="circle"></div>
+  </section>
 
-        .project-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 22px;
-            padding: 30px;
-            min-height: 250px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: 0.3s;
-        }
+  <section id="about">
+    <h2 class="section-title">A little about me</h2>
 
-        .project-card:hover {
-            transform: translateY(-7px);
-            box-shadow: var(--shadow);
-        }
+    <p class="about-text">
+      I'm a second-year B.Sc. Computer Science student interested in
+      technology, web development, data, documentation and practical skills.
+      I'm currently building my knowledge through small projects and
+      hands-on learning.
+    </p>
+  </section>
 
-        .project-number {
-            color: var(--rose);
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            margin-bottom: 20px;
-        }
+  <section id="skills">
+    <h2 class="section-title">Skills</h2>
 
-        .project-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-        }
+    <div class="grid">
+      <div class="card"><h3>Python</h3><p>Programming fundamentals and practice.</p></div>
+      <div class="card"><h3>Java</h3><p>Learning object-oriented programming.</p></div>
+      <div class="card"><h3>HTML</h3><p>Building webpage structures.</p></div>
+      <div class="card"><h3>CSS</h3><p>Styling and designing webpages.</p></div>
+      <div class="card"><h3>Git</h3><p>Learning version control.</p></div>
+      <div class="card"><h3>GitHub</h3><p>Managing and showcasing projects.</p></div>
+      <div class="card"><h3>Basic Excel</h3><p>Working with spreadsheets and data.</p></div>
+      <div class="card"><h3>Documentation</h3><p>Organizing information clearly.</p></div>
+    </div>
+  </section>
 
-        .project-card p {
-            color: var(--muted);
-            font-size: 0.9rem;
-        }
+  <section id="projects">
+    <h2 class="section-title">Projects</h2>
 
-        .tech {
-            margin-top: 25px;
-            color: var(--rose);
-            font-size: 0.78rem;
-            font-weight: bold;
-        }
+    <div class="grid">
+      <div class="card">
+        <div class="number">01</div>
+        <h3>Personal Portfolio Website</h3>
+        <p>A personal website built using HTML and CSS.</p>
+      </div>
 
-        /* EDUCATION */
+      <div class="card">
+        <div class="number">02</div>
+        <h3>Python Practice Projects</h3>
+        <p>Small programs created while learning Python.</p>
+      </div>
 
-        .education-card {
-            background: var(--white);
-            border: 1px solid var(--border);
-            border-radius: 22px;
-            padding: 35px;
-            box-shadow: var(--shadow);
-        }
+      <div class="card">
+        <div class="number">03</div>
+        <h3>Java Learning Projects</h3>
+        <p>Beginner projects created while learning Java.</p>
+      </div>
+    </div>
+  </section>
 
-        .education-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
+  <section id="education">
+    <h2 class="section-title">Education</h2>
 
-        .education-card p {
-            color: var(--muted);
-        }
+    <div class="education">
+      <h3>B.Sc. Computer Science</h3>
+      <p>Anna Adarsh College for Women</p>
+      <p>2nd Year · Chennai, India</p>
+    </div>
+  </section>
 
-        /* LEARNING */
+  <section>
+    <h2 class="section-title">Currently Learning</h2>
 
-        .learning-list {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-        }
+    <div class="grid">
+      <div class="card"><h3>Java</h3><p>Object-oriented programming and applications.</p></div>
+      <div class="card"><h3>Web Development</h3><p>HTML, CSS and beginner JavaScript.</p></div>
+      <div class="card"><h3>Git & GitHub</h3><p>Version control and project publishing.</p></div>
+    </div>
+  </section>
 
-        .learning-item {
-            padding: 25px;
-            border-left: 3px solid var(--rose);
-            background: var(--white);
-            border-radius: 0 16px 16px 0;
-            border-top: 1px solid var(--border);
-            border-right: 1px solid var(--border);
-            border-bottom: 1px solid var(--border);
-        }
+  <section id="contact" class="contact">
+    <h2 class="section-title">Let's connect.</h2>
 
-        .learning-item h3 {
-            margin-bottom: 8px;
-        }
+    <p class="about-text" style="margin: 0 auto 25px;">
+      I'm always learning and working on something new.
+    </p>
 
-        .learning-item p {
-            color: var(--muted);
-            font-size: 0.88rem;
-        }
+    <a href="mailto:your-email@example.com" class="button">Email Me</a>
+  </section>
 
-        /* CONTACT */
+  <footer>
+    © 2026 Valentina · Built with HTML & CSS
+  </footer>
 
-        .contact-box {
-            background: var(--brown);
-            color: white;
-            border-radius: 28px;
-            padding: 55px;
-            text-align: center;
-        }
-
-        .contact-box .section-label {
-            color: var(--rose-light);
-        }
-
-        .contact-box h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            color: #ddd4d1;
-            max-width: 550
+</body>
+</html>
